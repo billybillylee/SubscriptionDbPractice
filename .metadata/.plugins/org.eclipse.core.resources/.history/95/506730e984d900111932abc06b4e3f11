@@ -1,0 +1,86 @@
+package com.kh.PlantService;
+
+import java.sql.Connection;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.common.JdbcTemplate;
+import static com.kh.common.Template.getSqlSession;
+import com.kh.common.Template;
+import com.kh.plant.model.dao.Plantdao;
+import com.kh.plant.model.dto.HousePlantDto;
+
+public class PlantService {
+
+	public int save(HousePlantDto hpd) {
+
+		SqlSession session = getSqlSession();
+
+		int result = new Plantdao().save(session, hpd);
+
+		session.close();
+		return result;
+	}
+
+	public List<HousePlantDto> view() {
+
+		SqlSession session = getSqlSession();
+		List<HousePlantDto> plants = new Plantdao().view(session);
+		session.close();
+		return plants;
+	}
+
+	public int edit(HousePlantDto hpd) {
+
+		validatePlantNo(hpd.getPlantNo());
+		SqlSession session = getSqlSession();
+		int result = new Plantdao().edit(session, hpd);
+		session.close();
+
+		return result;
+	}
+
+	public int delete(int plantNo) {
+
+		validatePlantNo(plantNo);
+		SqlSession session = getSqlSession();
+
+		int result = new Plantdao().delete(session, plantNo);
+		session.close();
+		return result;
+	}
+
+	public HousePlantDto oneView(int plantNo) {
+		validatePlantNo(plantNo);
+
+	}
+
+	public List<HousePlantDto> search(String keyword) {
+
+	}
+
+	private void validatePlantNo(int plantNo) {
+		if (plantNo < 1) {
+			throw new RuntimeException("식물 번호는 1보다 작을 수 없습니다.");
+		}
+	}
+
+	private void validateHousePlant(HousePlantDto hpd) {
+		if (hpd == null) {
+			throw new RuntimeException("잠시후 다시 시도해보세요.");
+		}
+		if (hpd.getPlantName().isBlank() || hpd.getPlantName().length() > 40) {
+			throw new RuntimeException("적절한 메시지를 입력해주세요.");
+		}
+		if (hpd.getPlantType().isBlank() || hpd.getPlantType().length() > 6) {
+			throw new RuntimeException("유효하지 않은 타입입니다.");
+		}
+	}
+	
+	private void checkNull(HousePlantDto hpd) {
+		
+	}
+	
+
+}

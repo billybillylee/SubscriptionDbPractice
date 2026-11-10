@@ -1,0 +1,5 @@
+package com.kh.snackfood.service;
+
+public class foodService {
+	private FoodDao fd = new FoodDao();
+}

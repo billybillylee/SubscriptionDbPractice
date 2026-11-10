@@ -1,0 +1,29 @@
+package com.kh.subs.model.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.subs.model.dto.SubscriptionDto;
+
+public class SubsDao {
+	
+	public List<SubscriptionDto> selectAll(SqlSession session) {
+		return session.selectList("subsMapper.selectAll");
+	}
+	public int insertSub(SqlSession session, SubscriptionDto dto) {
+		return session.insert("subsMapper.insertSub", dto);
+	}
+	public SubscriptionDto selectOne(SqlSession session, int subNo) {
+		return session.selectOne("subsMapper.selectOne", subNo);
+	}
+	public int updateFee(SqlSession session, SubscriptionDto dto) {
+		return session.update("subsMapper.updateFee", dto);
+	}
+	public int deleteSub(SqlSession session, int subNo) {
+		return session.delete("subsMapper.deleteSub", subNo);
+	}
+	public List<SubscriptionDto> searchByCategory(SqlSession session, String keyword) {
+		session.selectList("subsMapper.searchByCategory", keyword);
+	}
+}

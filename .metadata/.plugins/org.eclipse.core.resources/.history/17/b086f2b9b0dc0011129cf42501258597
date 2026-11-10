@@ -1,0 +1,8 @@
+package com.kh.subs.model.dao;
+
+public class SubsDao {
+	
+	public List<SubscriptionDto> selectAll(SqlSession session) {
+		
+	}
+}

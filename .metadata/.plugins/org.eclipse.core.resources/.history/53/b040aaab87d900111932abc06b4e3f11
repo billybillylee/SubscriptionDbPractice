@@ -1,0 +1,40 @@
+package com.kh.plant.model.dao;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.ibatis.session.SqlSession;
+import com.kh.plant.model.dto.HousePlantDto;
+
+public class Plantdao {
+	
+	public int save(SqlSession session, HousePlantDto hpd) {
+		return session.insert("plantMapper.save", hpd);
+	}
+	
+	public List<HousePlantDto> view(SqlSession session) {
+		return session.selectList("plantMapper.view"); 
+		// 돌아갈 값이 따로 없으니까 String만 있는 selectList사용
+	}
+	
+	public int edit(SqlSession session, HousePlantDto hpd) {
+		//db 서버에 sql 실행요청 보내고 응답을 받아오는게 이 메서드가 할 일임.
+		return session.update("plantMapper.edit", hpd);
+	}
+	
+	public int delete(SqlSession session, int plantNo) {
+		return session.delete("plantMapper.delete", plantNo);
+	}
+	
+	public HousePlantDto oneView(SqlSession, int plantNo) {
+		session.selectOne
+	}
+	
+}}

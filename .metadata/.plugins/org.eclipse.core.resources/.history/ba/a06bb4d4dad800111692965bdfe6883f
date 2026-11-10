@@ -1,0 +1,8 @@
+package com.kh.common;
+
+public class Template {
+	
+	public static SqlSession getSqlSession() {
+		
+	}
+}

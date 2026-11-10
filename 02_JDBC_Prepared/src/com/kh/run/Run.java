@@ -1,0 +1,12 @@
+package com.kh.run;
+
+import com.kh.view.PlantView;
+
+public class Run {
+
+	public static void main(String[] args) {
+		new PlantView().mainMenu();
+
+	}
+
+}

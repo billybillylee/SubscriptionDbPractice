@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="plantMapper">
+   	<insert id="save"
+   			parameterType="plant">
+   		INSERT
+   		  INTO
+   		       HOUSEPLANT
+   		VALUES 
+   		       (
+   	           SEQ_PLANT_NO.NEXTVAL
+   		     , #{plantType}
+   		     , #{plantName}
+   		       )
+   	</insert>
+   	<!-- 
+   	pstmt 객체 직접 사용할 떄는 sql문에 ? 를 작성
+   	MyBatis를 사용할떄는 위치홀더 대신 sql문에 전달된 객체로부터 값을 뽑아서 사용 
+   	#{ 필드명 } getter()를 호출해서 값을 담아줌 ex) getPlantType //getter의 필드명을 잘 만들어줘야함.
+   	#{ 필드명, 변수명, map의 키값 } // 상황에 따라 MyBatis가 알아서 바인딩해줌.
+   	
+   	-->
+   	<select id="view"
+   			resultType="plant">
+		<include refid="plantColumm" />
+   		 ORDER
+   		    BY
+   		       PLANT_NO
+   	</select>
+   	<!-- 
+   		1) 기본생성자가 존재할 것
+   		2) 별칭으로 붙이는 필드의 setter 메서드가 존재할 것
+   		ResultSet의 조회 컬럼명 별칭을 필드명과 동일하게 맞춰준다면 AutoMapping이 구현됨.
+   	
+   	 -->
+   	 <update id="edit"
+   	 		 parameterType="plant">
+   	 		UPDATE
+   	 		       HOUSEPLANT
+   	 		   SET
+   	 		       PLANT_NAME = #{plantName}
+   	 		     , PLANT_TYPE = #{plantType}
+   	 		 WHERE
+   	 		  	   PLANT_NO = #{plantNo}
+   	 </update>
+   	 
+   	 <delete id="delete"
+   	 		 parameterType="_int">
+   	 		 DELETE
+   	 		   FROM
+   	 		   		HOUSEPLANT
+   	 		  WHERE
+   	 		        PLANT_NO = #{plantNo}   	 		 
+   	 </delete>
+   	 
+   	<sql id="plantColumm">
+   		SELECT
+   			   PLANT_NO 
+   			 , PLANT_NAME
+   			 , PLANT_TYPE 
+   		  FROM
+   		  	   HOUSEPLANT
+    </sql>
+ 
+   	 
+   	 <select id="oneView"
+   	 		 resultType="plant"
+   	 		 parameterType="_int">
+		<include refid="plantColumm" />
+   	 		 WHERE
+  				   PLANT_NO = #{plantNo}	 		  
+   	 </select>
+   	 
+   	 <select id="search"
+   	 		 resultType="plant"
+   	 		 parameterType="string">
+   	 	<include refid="plantColumm" />
+   	 	 WHERE
+   	 	  	   PLANT_TYPE LIKE '%' || #{Keyword} || '%'
+   	 	 ORDER
+   	 	    BY PLANT_NO DESC
+   	 </select>
+   	 <resultMap id="foodAndReviews" type="com.kh.snackfood.model.dto">
+   	 	<id column="FOOD_NO" property="foodNo" />
+   	 	<result column="FOOD_NAME" property="foodName" />
+   	 	<result column="PRICE" property="price" />
+   	 	<result column="REVIEW_NO" property="reviewNo"/>
+   	 </resultMap>
+   	 <select id="selectFoodList">
+   	 	SELECT 
+   	 		   FOOD_NO
+   	 		 , FOOD_NAME
+   	 		 , PRICE
+   	 		 , REVIEW_NO
+   	 		 , REVIEW_CONTENT
+   	   	 FROM 
+   	   	       SNACK_FOOD
+   	   	 JOIN
+   	   	      FOOD_REVIEW USING(FOOD_NO)
+   	   	ORDER
+   	   	   BY
+   	   	      FOOD_NO DESC
+   	 </select>
+   	
+     
+  
+  </mapper>

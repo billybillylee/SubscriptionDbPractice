@@ -1,0 +1,7 @@
+1793777243162	Delete resource '002_JDBC_Prepared'
+1793838769302	Copy Project '02_JDBC_Prepared'
+1793848948669	Copy Project '03_JDBC'
+1793868570381	Delete resource '04_JDBC/resources'
+1793926195609	Delete resource '04_JDBC/src/com/kh/common'
+1793936828601	Copy Project '04_JDBC'
+1793942884769	Delete resource '05_MyBatis/src/com/kh/snackfood/run'

@@ -1,0 +1,39 @@
+package com.kh.controller;
+
+import java.util.List;
+
+import com.kh.PlantService.PlantService;
+import com.kh.plant.model.dto.HousePlantDto;
+
+public class PlantController {
+	private PlantService ps = new PlantService();
+
+	public int save(String plantType, String plantName) {
+		HousePlantDto hpd = new HousePlantDto(plantType, plantName);
+		return ps.save(hpd);
+	}
+
+	public List<HousePlantDto> view() {
+		// TODO Auto-generated method stub
+		return ps.view();
+	}
+
+	public int edit(int plantNo, String plantName, String plantType) {
+		HousePlantDto hpd = new HousePlantDto(plantNo, plantType, plantName);
+		return ps.edit(hpd);
+
+	}
+
+	public int delete(int plantNo) {
+		return ps.delete(plantNo);
+	}
+
+	public HousePlantDto oneView(int plantNo) {
+		return ps.oneView(plantNo);
+	}
+
+	public List<HousePlantDto> search(String keyword) {
+		return ps.search(keyword);
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.kh.snackfood.service;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.common.Template;
+import com.kh.snackfood.model.dao.FoodDao;
+
+public class FoodService {
+	private FoodDao fd = new FoodDao();
+	
+	public void selectFoodList() {
+		SqlSession session = Template.getSqlSession();
+		// 음식이름 : 치즈떡볶이
+		// 분류    : 떡볶이
+		// 가격    : 8000
+		
+		
+	}
+}

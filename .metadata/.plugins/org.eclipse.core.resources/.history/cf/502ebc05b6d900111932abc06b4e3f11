@@ -1,0 +1,36 @@
+package com.kh.snackfood.view;
+
+import java.util.Scanner;
+
+import com.kh.snackfood.controller.FoodController;
+
+public class FoodView {
+	private FoodController fc = new FoodController();
+	private Scanner sc = new Scanner(System.in);
+	
+	/*
+	 * 한국에서 메서드 식별자 지어주는 방법
+	 * 
+	 * ex) Food
+	 * 
+	 * case 1. 
+	 * C : insertFood(Food food)
+	 * R(단건조회) : selectFood(Long id) 
+	 * R(목록조회) : selectFoodList(String keyword)
+	 * U : updateFood(Food food)
+	 * D : deleteFood(Long id)
+	 * 
+	 * case 2.
+	 * C : saveFood(Food food)
+	 * R : 
+	 *  - findFoodById(Long id) -> 단건조회
+	 *  - findAllFoods() -> 목록조회
+	 * U : updateFood(Food food)
+	 * D : deleteFoodById(Long id)
+	 */
+	public void mainMenu() {
+		while(true) {
+			System.out.println("분식 리뷰 시스템입니다.");
+		}
+	}
+}

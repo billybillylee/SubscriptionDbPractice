@@ -1,0 +1,34 @@
+package com.kh.subs.controller;
+
+import java.util.List;
+
+import com.kh.subs.model.dto.SubscriptionDto;
+import com.kh.subs.model.service.SubsService;
+
+public class SubsController {
+	private SubsService ss = new SubsService();
+	
+	public List<SubscriptionDto> selectAll() {
+		return ss.selectAll();
+	}
+	
+	public int insertSub(String subName, int monthlyFee, int paymentDay, String category) {
+		SubscriptionDto dto = new SubscriptionDto(subName, monthlyFee, paymentDay, category);
+		return ss.insertSub(dto);
+	}
+	
+	public SubscriptionDto selectOne(int subNo) {
+		return ss.selectOne(subNo);
+	}
+	
+	public int updateFee(int subNo, int monthlyFee) {
+		SubscriptionDto dto = new SubscriptionDto();
+		dto.setSubNo(subNo);
+		dto.setMonthlyFee(monthlyFee);
+		return ss.updateFee(dto);
+	}
+	
+	public int deleteSub(int subNo) {
+		return ss.deleteSub(subNo);
+	}
+}

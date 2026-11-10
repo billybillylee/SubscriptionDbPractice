@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="save">
+		INSERT
+	 	  INTO
+	    	   HOUSEPLANT
+		VALUES 
+			   (
+		       SEQ_PLANT_NO.NEXTVAL
+			   , ?
+			   , ?
+			     )
+	</entry>
+	<entry key="view">
+		SELECT
+			   PLANT_NO
+			 , PLANT_NAME
+			 , PLANT_TYPE
+		  FROM 
+			   HOUSEPLANT
+         ORDER
+			BY 
+			   PLANT_NO DESC
+	</entry>
+
+
+</properties>

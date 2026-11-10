@@ -1,0 +1,5 @@
+package com.kh.snackfood.model.dto;
+
+public class FoodReviewDto {
+
+}

@@ -1,0 +1,11 @@
+package com.kh.snackfood.service;
+
+import com.kh.snackfood.model.dao.FoodDao;
+
+public class FoodService {
+	private FoodDao fd = new FoodDao();
+	
+	public void selectFoodList() {
+		
+	}
+}

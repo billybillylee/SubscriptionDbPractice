@@ -1,0 +1,16 @@
+package com.kh.snackfood.model.dto;
+
+import java.util.Date;
+
+public class FoodReviewDto {
+	private Long reviewNo;
+	private String reviewWriter;
+	private String reviewContent;
+	private Long foodNo;
+	private Integer rating;
+	private Date createDate;
+	private String deleteYn;
+	
+	
+
+}

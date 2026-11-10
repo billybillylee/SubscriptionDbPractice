@@ -1,0 +1,17 @@
+package com.kh.common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class JdbcTemplate {
+	
+	public static Connection getConnection() {
+		
+		DriverManager.getConnection(""
+									,""
+									,""
+								 	   );
+		
+	}
+
+}

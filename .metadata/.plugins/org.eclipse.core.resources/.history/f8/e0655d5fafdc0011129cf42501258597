@@ -1,0 +1,10 @@
+package com.kh.common;
+
+import org.apache.ibatis.session.SqlSession;
+
+public class Template {
+	public static SqlSession getSqlSession() {
+		String config = "mybatis-config.xml";
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.kh.subs.model.service;
+
+public class SubsService {
+	public List<SubscriptionDto> selectAll() {
+		
+	}
+}

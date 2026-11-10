@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Copy &apos;mybatis-config.xml&apos; to &apos;mybatis&apos;" description="Copy &apos;mybatis-config.xml&apos; to &apos;mybatis&apos;" destination1="mybatis/mybatis-config.xml" element1="resources/mybatis-config.xml" flags="7" id="org.eclipse.ltk.core.refactoring.copy.resources" resources="1" stamp="1793857148257"/>&#x0A;<refactoring comment="Move &apos;connection.properties&apos; to &apos;mybatis&apos;" description="Move &apos;connection.properties&apos; to &apos;mybatis&apos;" destination="mybatis" element1="resources/connection.properties" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1793868559591" updateReferences="true"/>
+</session>

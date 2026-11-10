@@ -1,0 +1,10 @@
+package com.kh.snackfood.model.dto;
+
+
+// 존재의의 = 데이터 전달, 타입 안정성 확보, 그리고 시스템의 확장성을 고려
+public class SnackFoodDto {
+	private int foodNo;
+	private String foodName;
+	private int price;
+	private String category;
+}

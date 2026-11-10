@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="foodMapper">
+ <resultMap id="foodAndReviews" type="com.kh.snackfood.model.dto.SnackFoodDto">
+   	 	<id column="FOOD_NO" property="foodNo" />
+   	 	<result column="FOOD_NAME" property="foodName" />
+   	 	<result column="PRICE" property="price" />
+   	 	<collection property="reviews" ofType="com.kh.snackfood.model.dto.FoodReviewDto">
+   	 		<id column="REIVEW_NO" property="reviewNO" />
+   	 		<result column="REVIEW_CONTENT" property="reviewContent" />
+   	 	</collection>
+   	 </resultMap>
+   	 <select id="selectFoodList" resultMap="foodAndReviews">
+   	 	SELECT 
+   	 		   FOOD_NO
+   	 		 , FOOD_NAME
+   	 		 , PRICE
+   	 		 , REVIEW_NO
+   	 		 , REVIEW_CONTENT
+   	   	 FROM 
+   	   	       SNACK_FOOD
+   	   	 JOIN
+   	   	      FOOD_REVIEW USING(FOOD_NO)
+   	   	ORDER
+   	   	   BY
+   	   	      FOOD_NO DESC
+   	 </select>
+</mapper>
+   	 	    
+   	
+   	
+   	
+     
+  
+ 

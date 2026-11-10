@@ -1,0 +1,38 @@
+package com.kh.subs.model.service;
+
+import static com.kh.common.Template.getSqlSession;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.subs.model.dao.SubsDao;
+import com.kh.subs.model.dto.SubscriptionDto;
+public class SubsService {
+	
+	public List<SubscriptionDto> selectAll() {
+		SqlSession session = getSqlSession();
+		
+		List<SubscriptionDto> list = new SubsDao().selectAll(session);
+		
+		session.close();
+		
+		return list;
+	}
+	
+	public int insertSub(SubscriptionDto dto) {
+		SqlSession session = getSqlSession();
+		
+		int result = new SubsDao().insertSub(session, dto);
+		
+		session.close();
+		
+		return result;
+	}
+	
+	public SubscriptionDto selectOne(int subNo) {
+		SqlSession session = new SqlSession();
+	}
+	
+	
+}

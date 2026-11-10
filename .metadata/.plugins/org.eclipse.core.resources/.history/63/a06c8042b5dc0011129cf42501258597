@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="subsMapper">
+	<select id"selectAll"
+	        resultType="sub">
+	        SELECT
+	               SUB_NO
+	             , SUB_NAME
+	             , MONTHLY_FEE
+	             , PAYMENT_DAY
+	             , CATEGORY
+	         FROM  
+	               SUBSCRIPTION
+	        ORDER
+	           BY
+	              SUB_NO
+	</select>
+</mapper>

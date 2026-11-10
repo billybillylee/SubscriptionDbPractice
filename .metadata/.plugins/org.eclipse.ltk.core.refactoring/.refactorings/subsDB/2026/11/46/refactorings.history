@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;subsDB/src/sus-mapper.xml&apos; to &apos;subs-mapper.xml&apos;" description="Rename resource &apos;sus-mapper.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/sus-mapper.xml" name="subs-mapper.xml" stamp="1794280792209" updateReferences="true"/>
+</session>

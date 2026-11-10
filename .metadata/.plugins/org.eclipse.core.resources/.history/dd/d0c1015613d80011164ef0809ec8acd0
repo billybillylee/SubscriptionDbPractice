@@ -1,0 +1,9 @@
+package com.kh.common;
+
+public class JdbcTemplate {
+	
+	public static Connection getConnection() {
+		
+	}
+
+}
